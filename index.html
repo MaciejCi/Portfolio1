@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria żywiołów</title>
+</head>
+<body>
+
+<h1>Galeria żywiołów</h1>
+<div class="gallery">
+    <img src="woda.png" alt="Woda" class="thumbnail" data-full="woda.png">
+    <img src="ziemia.png" alt="Ziemia" class="thumbnail" data-full="ziemia.png">
+    <img src="ogień.png" alt="Ogień" class="thumbnail" data-full="ogień.png">
+    <img src="wiatr.png" alt="Wiatr" class="thumbnail" data-full="wiatr.png">
+</div>
+
+<div class="lightbox" id="lightbox">
+    <span class="close" id="close">&times;</span>
+    <img id="lightbox-img" src="" alt="Pełne zdjęcie">
+</div>
+
+<script>
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('close');
+
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', () => {
+            const fullImage = thumbnail.getAttribute('data-full');
+            lightboxImg.src = fullImage;
+            lightbox.style.display = 'flex';
+        });
+    });
+
+    closeBtn.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>
